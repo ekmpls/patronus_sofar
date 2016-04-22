@@ -6,19 +6,22 @@ app.controller('TheController', ['$http', function($http){
   vm.first_name = '';
   vm.last_name = '';
 
-vm.getPeople = function(){
+
+  vm.getPeople = function(){
     $http.get('/people').then(function(response){
     vm.anArray = response.data;
     console.log(response.data);
     return response.data;
-  });
+  })
 }
 
   vm.sendDataPeople = function(){
     $http.post('/people', {first_name: vm.first_name, last_name: vm.last_name}).then(function(serverResponse){
       console.log(serverResponse);
-    });
+      vm.getPeople();
+    })
   }
+  vm.getPeople();
 }]);
 
 app.controller('OtherController', ['$http', function($http){
@@ -33,15 +36,15 @@ app.controller('OtherController', ['$http', function($http){
       mv.anotherArray = response.data;
       console.log(response.data);
       return response.data;
-    });
+    })
   }
 
   mv.sendDataPatronus = function(){
 
     $http.post('/patronus', {patronus_name: mv.patronus_name}).then(function(serverResponse){
       console.log(serverResponse);
-    });
+      mv.getPatronuses();
+    })
   }
-  getPeople();
-  getPatronuses();
+  mv.getPatronuses();
 }]);

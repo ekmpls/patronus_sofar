@@ -17,12 +17,12 @@
         <input type="text" ng-model="the.last_name">
         <br>
         <button ng-click="the.sendDataPeople()">Submit Name</button>
-      </div>
-      <div ng-repeat='people in the.anArray'>
-      {{people.first_name}}
-      {{people.last_name}}
+      </div><br>
+      <div ng-repeat="anArray in the.anArray">
+      {{anArray.first_name}}
+      {{anArray.last_name}}
     </div>
-    </div>
+  </div><br><br>
 
     <div ng-controller="OtherController as other">
       <div class="enterPatronus">
@@ -30,9 +30,9 @@
         <input type="text" ng-model="other.patronus_name">
         <br>
         <button ng-click="other.sendDataPatronus()">Submit Patronus</button>
-      </div>
-      <div ng-repeat='array in other.anotherArray'>
-      {{array.patronus_name}}
+      </div><br>
+      <div ng-repeat="anotherArray in other.anotherArray">
+      {{anotherArray.patronus_name}}
     </div>
     </div>
 
